@@ -32,14 +32,12 @@ items.forEach(item => {
                 display.value = previousInput + operator + currentInput;
             }
         } else if (type === 'operator') {
-            // Si no hay número nuevo, solo reemplazar el operador
             if (currentInput === '' && operator !== '') {
                 operator = value;
                 display.value = previousInput + operator;
                 return;
             }
 
-            // Acumular expresión si ya hay operador y número
             if (currentInput !== '' && operator !== '') {
                 previousInput = previousInput + operator + currentInput;
             } else {
@@ -55,7 +53,6 @@ items.forEach(item => {
             operator = '';
             previousInput = '';
         } else {
-            // Es un número o punto decimal
             if (value === '.' && currentInput.includes('.')) return;
             currentInput += value;
             display.value = previousInput + operator + currentInput;
